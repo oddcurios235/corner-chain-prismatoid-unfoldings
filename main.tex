@@ -1,0 +1,445 @@
+\documentclass[a4paper,11pt]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{microtype}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\urlstyle{same}
+\hypersetup{pdftitle={Edge Unfoldings of Complementary Corner-Chain Prismatoids at Every Positive Height},pdfauthor={Y. T. Miah}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ang}{\operatorname{arg}}
+
+\title[Edge unfoldings of corner-chain prismatoids]{Edge Unfoldings of Complementary\\Corner-Chain Prismatoids at\\Every Positive Height}
+\author{Y. T. Miah}
+\date{5 November 2026}
+\subjclass[2020]{Primary 52B10; Secondary 68U05}
+\keywords{Convex prismatoid, edge unfolding, D\"urer's problem, nonoverlapping net, polygonal development}
+
+\begin{document}
+\begin{abstract}
+We prove that a family of convex prismatoids with complementary monotone corner chains admits a nonoverlapping edge unfolding at every positive height. Each chain may have arbitrarily many edges, and the bases may have any relative horizontal placement, including disjoint projections. The positive coordinate directions in the defining frame meet at an angle in $[\pi/2,\pi)$, including the orthogonal case. We specify two spanning cut trees consisting entirely of original polyhedral edges and give sufficient metric inequalities that select a nonoverlapping net for every member of the family. The proof combines Pinciu's face-neighborhood nonoverlap theorem with angular separation of an attached triangular fan and a supporting-circle argument separating the upper face from remote side triangles. All developments preserve the Euclidean metric of the original solid.
+\end{abstract}
+\maketitle
+
+\section{Introduction}
+An \emph{edge unfolding} of a convex polyhedron is obtained by cutting along edges so that the remaining connected surface develops isometrically into the plane. It is \emph{nonoverlapping} if the relative interiors of distinct developed faces do not intersect; contact along their boundaries is permitted. The general existence question, often called D\"urer's problem, remains open. It is open even for arbitrary convex prismatoids, the convex hulls of two polygons lying in parallel planes~\cite{ORourke2026}.
+
+Several restricted classes and related unfolding operations are understood. Classical prismoids and domes admit edge nets~\cite[Ch.~22, \S22.5]{DemaineORourke2007}; the lower-face \emph{volcano unfolding}, in which a face and all of its edge-neighbors are developed directly about their common edges, is nonoverlapping by Pinciu's theorem~\cite[Theorem~1]{Pinciu2007}. Aloupis treated the unfolding of lateral polygonal bands, including nonnested closed bands, without thereby attaching both caps~\cite[Chapter~7]{Aloupis2005}; see also~\cite{AloupisEtAl2008}. O'Rourke developed petal unfoldings for topless prismatoids and particular convex face neighborhoods~\cite{ORourke2013}. Radons proved that all \emph{nested} prismatoids have edge nets~\cite{Radons2024}, and Bian, Demaine, and Madhukara established existence for sufficiently tall prismatoids, as well as for prismatoids with a rectangular base and nonobtuse triangular remaining faces~\cite{BianDemaineMadhukara2021}.
+
+We give a fixed-metric, all-height result for a class that can have disjoint horizontal projections. It combines a directly unfolded lower neighborhood with a fan of triangles and an attached upper cap. The last two features require arguments not furnished by the face-neighborhood theorem. In particular, some remote petals can extend higher than the unfolded top edge, so disjointness does not follow simply by placing the upper cap beyond a horizontal line.
+
+There are other relevant constructions. Benton and O'Rourke obtain safe unfoldings by degree-three leaf truncations under an empty-sector condition~\cite{BentonORourke2007}. O'Rourke and V\^ilcu study polyhedra with skeletal cut loci, whose source unfoldings are edge unfoldings, and exhibit tapered constructions~\cite{ORourkeVilcu2025}. These results do not assert the particular two-tree conclusion below for every prescribed Euclidean prismatoid in our class; nor do we establish that a suitable application of either construction is impossible. Finally, Ghomi's general result allows a suitable \emph{affine change of the solid}~\cite{Ghomi2014}, in contrast to the fixed metric considered here.
+
+\section{The polygons and the two cut trees}
+We distinguish coordinate \emph{labels} from physical Euclidean horizontal coordinates. Fix $a\geq0$ and put
+\begin{equation}\label{eq:J}
+ J_a(x,y)=(x-ay,y),\qquad L=\sqrt{1+a^2},\qquad
+ \delta=\ang(-a,1)\in[\pi/2,\pi).
+\end{equation}
+We use $(x,y)$ as labels in defining the polygons, and identify such a label with the physical point $J_a(x,y)$ whenever speaking of a planar or spatial vertex. Thus the actual three-dimensional coordinates of a lower vertex labeled $(x,y)$ are $(x-ay,y,0)$, and of an upper vertex are $(x-ay,y,h)$. In particular, $J_a$ specifies each actual solid; it is \emph{not} an affine modification of a developed net.
+
+Choose $b,c,h>0$, integers $r\geq0$ and $k\geq1$, and real numbers $u<e$ and $v<d$. The lower polygon, in cyclic order, is
+\begin{equation}\label{eq:B}
+ B=(O,X,C_0,\ldots,C_r,Z),\qquad
+ O=(0,0),\quad X=(b,0),\quad Z=(0,c).
+\end{equation}
+When $r=0$, require $C_0=(b,c)$. When $r\geq1$, require
+\[
+ C_0=(b,c_0),\qquad C_r=(b_0,c),\qquad
+ 0<c_0<c,\quad0<b_0<b,
+\]
+and, writing $C_j=(x_j,y_j)$, require $x_{j+1}<x_j$ and $y_{j+1}>y_j$ for every $0\leq j<r$. In either case require that $B$ is convex and has every interior angle strictly less than $\pi$. It is contained in the labeled rectangle $[0,b]\times[0,c]$.
+
+The upper polygon at height $h$ is
+\begin{equation}\label{eq:A}
+\begin{gathered}
+ A=(U=A_0,A_1,\ldots,A_k=V,W),\\
+ U=(u,d),\quad V=(e,v),\quad W=(e,d).
+\end{gathered}
+\end{equation}
+For $A_i=(\xi_i,\upsilon_i)$ require
+$\xi_{i+1}>\xi_i$ and $\upsilon_{i+1}<\upsilon_i$ for $0\leq i<k$; require moreover that $A$ is convex with every interior angle strictly less than $\pi$. These restrictions imply that each base is a nondegenerate convex polygon, without collinear consecutive edges. No nesting or intersection condition is imposed on their horizontal projections. Let
+\[
+ P=\operatorname{conv}\bigl((J_a(B),0)\cup(J_a(A),h)\bigr).
+\]
+We call these the \emph{admissible complementary corner-chain prismatoids}.
+In these coordinate labels, the lower base has its variable monotone chain along its northeastern boundary, while the upper base has its variable monotone chain along its southwestern boundary.
+
+Define four quantities which depend only on the distinguished corners and on the Euclidean height:
+\begin{align}\label{eq:parameters}
+ A_*&=e-b,& D_*&=d-c,\\
+ \rho&=\sqrt{A_*^2+L^2h^2},& S&=\sqrt{D_*^2+h^2},\\
+ \lambda&=\frac{\rho-A_*}{L^2}>0,&
+ \mu&=S-D_*>0.
+\end{align}
+In the rigid developments below, $\mu$ is the outward shift at the north hinge, and $\lambda(1,a)$ is the outward shift vector at the east hinge.
+Write $PQ$ for an \emph{original} polyhedral edge, not a diagonal introduced into a facet, and put
+\begin{align}\label{eq:trees}
+ T_N={}&\{OU,XV,ZU,VW\}
+ \cup\{C_jW:0\leq j\leq r\}
+ \cup\{A_iA_{i+1}:0\leq i<k\},\\
+ T_E={}&(T_N\setminus\{OU,VW\})\cup\{OV,UW\}.
+\end{align}
+
+\begin{theorem}[Two-tree edge unfolding]\label{thm:main}
+For every admissible complementary corner-chain prismatoid $P$, with the original Euclidean metric and any $h>0$, the two sets in \eqref{eq:trees} are spanning cut trees of the actual edge graph. The unfolding along $T_N$ is nonoverlapping whenever
+\begin{equation}\label{eq:Ncondition}
+ \mu\geq a\lambda,
+\end{equation}
+and the unfolding along $T_E$ is nonoverlapping whenever
+\begin{equation}\label{eq:Econdition}
+ (1+a^2)\lambda\geq a\mu.
+\end{equation}
+The two sufficient conditions cover every admissible parameter choice. In particular, choosing $T_N$ if \eqref{eq:Ncondition} holds and $T_E$ otherwise always gives a nonoverlapping genuine-edge net.
+\end{theorem}
+
+The inequalities are \emph{sufficient}, not asserted necessary. Their coverage is immediate: if $\mu<a\lambda$, then $a>0$ and $a\mu<a^2\lambda<(1+a^2)\lambda$. The geometric content of the theorem is proving the separate nonoverlap assertions, including at equality.
+
+\section{The actual facets and the metric development}
+\begin{proposition}\label{prop:facets}
+The maximal facets of $P$ are exactly the lower and upper polygons, the triangles
+\[
+ OXV,\quad OZU,\quad
+ C_jC_{j+1}W\ (0\leq j<r),\quad
+ OA_iA_{i+1}\ (0\leq i<k),
+\]
+and the two untriangulated quadrilaterals
+\[
+ XC_0WV,\qquad C_rZUW.
+\]
+Consequently both sets in \eqref{eq:trees} consist of genuine edges and are spanning trees. The surface left by either cut is a connected polygonal disk.
+\end{proposition}
+\begin{proof}
+For a horizontal supporting covector, the section of the convex hull at fractional height $t\in[0,1]$ is $(1-t)J_a(B)+tJ_a(A)$. Its exposed face in a given horizontal direction is the Minkowski combination of the exposed faces of the two bases. This statement is invariant under the invertible coordinate labeling $J_a$, so we may compute the planar normal fans using label covectors.
+
+The lower boundary consists successively of an east-going edge $OX$, a north-going edge $XC_0$, northeast-chain edges $C_jC_{j+1}$ directed northwest, a west-going edge $C_rZ$, and the south-going edge $ZO$. Their outward label normals have, respectively, the directions south, east, strictly northeast, north, and west. The upper boundary consists of southeast-directed edges $A_iA_{i+1}$, the north-going edge $VW$, and the west-going edge $WU$; its respective outward normals are strictly southwest, east, and north. Thus a southwest upper edge exposes only $O$ below, and a northeast lower edge exposes only $W$ above. The south and west lower edges expose $V$ and $U$, respectively; the two parallel-edge pairs on the east and north expose $XC_0$ with $VW$ and $C_rZ$ with $WU$. These are precisely the listed side facets.
+
+For completeness, no further side facets occur between these normal directions: at each open arc of the joint normal-fan refinement, one of the exposed faces is a vertex and the other is the designated edge, or both are vertices. At the east and north interface directions the two exposed edges are parallel, giving coplanar quadrilaterals. Strict coordinate monotonicity places chain normals in the stated \emph{open} quadrants, and strict polygonal convexity makes them distinct. In particular, no side triangle merges with a neighbor and no quadrilateral is split into original hull triangles. The two horizontal faces are the bases, since $h>0$. This proves the maximal-facet assertion for all $r,k$ and all translations.
+
+There are $r+k+6$ distinct vertices and the same number of facets. The lower boundary has $r+4$ vertices and the upper boundary $k+2$. In $T_N$, the cut edges $A_iA_{i+1}$ together with $VW$ form the upper path $U,A_1,\ldots,V,W$. Vertices $O,Z$ attach to $U$, $X$ attaches to $V$, and every $C_j$ attaches to $W$. Thus $T_N$ is a connected acyclic graph on every vertex, with $r+k+5$ edges. In $T_E$ the upper path is $V,\ldots,U,W$, and the lower vertices are attached by $OV,ZU,XV,C_jW$, so it is likewise a spanning tree.
+
+Cutting a sphere along an embedded spanning tree of its vertices produces a topological disk. One can also see the uncut dual directly: the lower base retains every hinge to its boundary-adjacent side facet; the upper face retains just its hinge on $UW$ (respectively $VW$ after reflection), and the consecutive $O$-fan faces remain connected through their radial hinges, with one end attached to $OXV$ (respectively $OZU$). This connected dual has $F-1=r+k+5$ edges, so it is a tree. In particular the construction retains each quadrilateral as a single rigid face.
+\end{proof}
+
+The next formula fixes the metric convention throughout the proof. Keep the bottom polygon fixed in its \emph{physical} Euclidean plane. For an edge of $B$, let $n$ be its outward Euclidean unit normal and $\kappa_B$ its Euclidean support value, so the edge lies on $n\cdot z=\kappa_B$. Suppose a side face has an upper vertex with projected physical coordinate $w$. Put
+\begin{equation}\label{eq:develop}
+ \mathcal D_{n}(w)=w+\tau n,\qquad
+ \tau=\sqrt{(n\cdot w-\kappa_B)^2+h^2}
+             -(n\cdot w-\kappa_B)>0.
+\end{equation}
+
+\begin{lemma}[Rigid edge development]\label{lem:rigid}
+Formula \eqref{eq:develop} gives the outward, isometric planar development of an upper vertex about the actual lower edge. For the corresponding facet it preserves all distances. In particular, in the directly developed lower-face neighborhood, the north images of $U,W$ are $J_a(u,d)+(0,\mu)$ and $J_a(e,d)+(0,\mu)$; the east images of $V,W$ are $J_a(e,v)+\lambda(1,a)$ and $J_a(e,d)+\lambda(1,a)$. The south image of $V$ and west image of $U$ are
+\begin{equation}\label{eq:southwest}
+\begin{aligned}
+ V_S&=(e-av,-q), & q&=\sqrt{v^2+h^2},\\
+ U_L&=J_a(u,d)-\eta(1,a),&
+ \eta&=\frac{\sqrt{u^2+L^2h^2}+u}{L^2}>0.
+\end{aligned}
+\end{equation}
+\end{lemma}
+\begin{proof}
+Resolve a displacement into components tangential and normal to the bottom hinge. Rotation of the upper face into the bottom plane leaves the tangential coordinate of $w$ unchanged; its distance from the hinge becomes $\sqrt{(n\cdot w-\kappa_B)^2+h^2}$. The outward choice yields \eqref{eq:develop}, and is the restriction of a spatial rigid rotation, not an affine planar transformation. For a parallelogram side facet the two upper vertices have equal normal coordinates, so the same rigid rotation applies to both.
+
+The north hinge has normal $(0,1)$ and support $c$, yielding shift $(0,\mu)$. The east hinge has normal $(1,a)/L$ and support $b/L$, so its shift is $\lambda(1,a)$. The south and west cases similarly give \eqref{eq:southwest}; the stated coefficients are positive because $h>0$. All four calculations use orthonormal Euclidean coordinates.
+\end{proof}
+
+Pinciu's face-neighborhood theorem~\cite[Theorem~1]{Pinciu2007} now applies to the entire directly unfolded patch consisting of $B$ and \emph{every} side facet adjacent to an edge of $B$. These are the south and west triangles, the north and east quadrilaterals, and every northeast triangle. Their relative interiors are pairwise disjoint. It remains to attach and separate the $O$-fan and the upper face.
+
+\section{Angular separation of the fan}
+Here and below angles in the development are measured counterclockwise about $O$ using physical orthonormal coordinates and a continuous choice of argument, not oblique coordinate angles. Define
+\[
+ \alpha=\angle XOV_S,\qquad
+ \gamma=\angle ZOU_L,\qquad
+ \beta=\delta+\gamma,
+\]
+and let $\Theta$ be the sum of the \emph{three-dimensional face angles at $O$} in all triangles $OA_iA_{i+1}$. The lower angle at $O$ is $\delta$; the south and west angles are $\alpha$ and $\gamma$. Since $O$ is a vertex of the three-dimensional convex polyhedron, its angular defect is strictly positive:
+\begin{equation}\label{eq:curvature}
+ \alpha+\beta+\Theta=\alpha+\delta+\gamma+\Theta<2\pi.
+\end{equation}
+The south petal occupies directions $[-\alpha,0]$ and the west petal $[\delta,\beta]$, while $B$ occupies $[0,\delta]$.
+
+\begin{lemma}[Confinement of the lower petals]\label{lem:directions}
+Every face directly developed about an edge of $B$ has all its nonzero points in the continuous angular interval $[-\alpha,\beta]$.
+\end{lemma}
+\begin{proof}
+We consider the extra east, north, and northeast petals, since the other three ranges were just identified. Let $n$ be the outward Euclidean unit normal of a northeast bottom edge. In the physical coordinates it satisfies
+\begin{equation}\label{eq:normal}
+ n_x>0,\qquad n_y>a n_x\geq0.
+\end{equation}
+For the east edge the second inequality is an equality. Its support value $\kappa_B$ is positive: the lower polygon lies beyond $O$ in these supporting directions. If $z$ is the unfolded upper apex, then by \eqref{eq:develop}
+\[
+ n\cdot z=\kappa_B+\sqrt{(n\cdot w-\kappa_B)^2+h^2}>0.
+\]
+All points of the relevant petal have positive $n$-component. The petal is therefore contained in an \emph{open supporting half-plane through $O$}, whose available angular interval has width $\pi$. Since $n_x,n_y>0$ (or $n_y=0$ for the unsheared east case), this interval has its argument in $(-\pi/2,\pi)$. In particular a convex petal cannot pass around the origin by the long way, even when $[-\alpha,\beta]$ has width greater than $\pi$. We may bound the arguments of its vertices and then use the shorter angular interval supplied by this half-plane.
+
+For a northeast apex, or an east apex, write
+\begin{equation}\label{eq:apexparam}
+ z=J_a(e,y_0)+t n,\qquad y_0\geq v,\quad t>0,
+\end{equation}
+where in the east case $y_0$ may be $v$ or $d$. We prove $\ang z>-\alpha$ whenever $z_y<0$; when $z_y\geq0$ this is automatic. The former case forces $v<0$ and $z_x>0$, the latter from $n\cdot z>0$. Set $K=e-av$, so $V_S=(K,-q)$, $q=\sqrt{v^2+h^2}>|v|$. If $K\leq0$, then $-\alpha\leq-\pi/2$, and the assertion follows from $z_x>0$. Suppose $K>0$. If $e\leq0$, necessarily $a>0$, and $n\cdot z>0$ implies
+\[
+ \frac{z_x}{-z_y}>\frac{n_y}{n_x}\geq a>
+ \frac{e+a|v|}{q}=\frac Kq.
+\]
+If $e>0$, then $z_x+az_y=e+t(n_x+an_y)>e$ and $-z_y\leq|v|$, whence
+\[
+ \frac{z_x}{-z_y}>a+\frac{e}{|v|}>
+ \frac{e+a|v|}{q}=\frac Kq.
+\]
+These inequalities compare the fourth-quadrant directions with that of $V_S$ and give $\ang z>-\alpha$. The base-edge vertices have nonnegative $y$ and satisfy the same lower bound. North-side petals lie in $y>0$ and have it as well.
+
+To obtain the upper bound, consider the \emph{orthogonal} reflection
+\begin{equation}\label{eq:reflection}
+ R(x,y)=\left(\frac{-ax+y}{L},\frac{x+ay}{L}\right),
+ \qquad R(J_a(x_0,y_0))=J_a(Ly_0,x_0/L).
+\end{equation}
+It has $R^{\mathsf T}R=I$ and determinant $-1$. In the new label frame it interchanges east and north and reverses the two monotone chains; the new south angle is the old west angle $\gamma$. Because the reflection changes an argument $\theta$ into $\delta-\theta$, the already established lower-bound proof in the reflected frame gives $\ang z<\delta+\gamma=\beta$ for all north and northeast petal vertices. The east petal has $x+ay>0$ throughout its development and has angular argument less than $\delta<\beta$ (if its $y$ is negative, its $x$ is positive). All petals lie in supporting half-planes with a common nonwrapping argument interval as observed above. Their \emph{whole convex interiors}, and not just their apex vertices, therefore satisfy both bounds. The lemma follows.
+\end{proof}
+
+For the $N$ construction, the upper face is attached along the uncut north edge $UW$. Put
+\begin{equation}\label{eq:ell}
+ \ell=d+\mu=c+S>\max\{c,d\},\qquad E_0=e-ad.
+\end{equation}
+The resulting upper-face placement is the plane \emph{isometry}
+\begin{equation}\label{eq:topdev}
+ J_a(x,y)\longmapsto (x-ay,\,2d+\mu-y).
+\end{equation}
+It is a reflection of the actual upper polygon in the developed north hinge $y=\ell$ after rigidly placing that hinge, not an application of $J_a$ to an existing development. Since every upper label obeys $x\leq e$ and $y\leq d$, its planar image lies in the closed wedge
+\begin{equation}\label{eq:wedge}
+ \mathcal K_N=\{(X,Y):Y\geq\ell,\quad
+ X\leq E_0+a(Y-\ell)\}.
+\end{equation}
+
+\begin{lemma}[The upper-face directions]\label{lem:topangle}
+Every point of the developed upper face has argument in $[-\alpha,\beta]$.
+\end{lemma}
+\begin{proof}
+Its second coordinate is at least $\ell>0$, so its argument belongs to $(0,\pi)$ and in particular is greater than $-\alpha$. If $\beta\geq\pi$ the upper bound is immediate. If $\beta<\pi$, the developed west vertex $U_L$ lies in the second quadrant with argument $\beta$. The north image $U_N=J_a(u,d)+(0,\mu)$ satisfies
+\[
+ U_N-U_L=(\eta,\mu+a\eta),
+\]
+whose coordinates are strictly positive. Every point of the upper face is componentwise no smaller than $U_N$, by \eqref{eq:topdev} and the inequalities $x\geq u$, $y\leq d$. While a point remains in the second quadrant, increasing either Cartesian coordinate cannot increase its argument; once its first coordinate becomes nonnegative, its argument is at most $\pi/2<\beta$. Thus its argument is at most $\beta$.
+\end{proof}
+
+\begin{proposition}[Separation of the entire $O$-fan]\label{prop:fan}
+In the development along $T_N$, the triangles $OA_iA_{i+1}$ have pairwise disjoint relative interiors, and no such triangle overlaps any directly developed lower petal, $B$, or the developed upper face.
+\end{proposition}
+\begin{proof}
+The first fan triangle is attached to the south side facet along its uncut edge $OV$. Successive fan triangles are attached along the uncut radial edges $OA_i$; the chain edges $A_iA_{i+1}$ have been cut. Developing the fan clockwise from the ray $OV_S$ places its angular interval precisely at
+\[
+ [2\pi-\alpha-\Theta,\,2\pi-\alpha].
+\]
+By \eqref{eq:curvature}, its first endpoint exceeds $\beta$, whereas the upper endpoint is less than $2\pi$. Each triangular fan face subtends an angle strictly between $0$ and $\pi$ at $O$ and lies in its own successive angular subinterval. The fan is hence internally nonoverlapping, and its entire angular region is disjoint from the region $[-\alpha,\beta]$ occupied by the other developed faces by Lemmas~\ref{lem:directions} and~\ref{lem:topangle}. The two angular descriptions use a common real lift; the gap comes from the actual positive vertex curvature, not from a modulo-$2\pi$ ordering assumption. Their common hinge boundary is harmless.
+\end{proof}
+
+\section{The upper face and all remote petals}
+We now prove the $N$-branch estimate \eqref{eq:Ncondition}. Only the upper face against the lower-neighborhood petals remains to be checked. It is convenient to write physical planar coordinates as $(X,Y)$ to distinguish them from the oblique labels.
+
+\begin{lemma}[Ordinary petals]\label{lem:ordinary}
+If $\mu\geq a\lambda$, the upper face in \eqref{eq:wedge} has no interior overlap with $B$ or with the south, west, north, or east directly developed facets.
+\end{lemma}
+\begin{proof}
+The upper face lies in $Y\geq\ell$. The bottom base has $Y\leq c<\ell$. By Lemma~\ref{lem:rigid}, the south and west facets have $Y\leq\max\{0,c,d\}<\ell$, and the north quadrilateral has $Y\leq\ell$. The east quadrilateral has $Y\leq\max\{c,d+a\lambda\}\leq\ell$ by the assumed inequality. Thus at most boundary contact is possible.
+\end{proof}
+
+The northeast triangular petals are different: their outward developed apex can satisfy $Y>\ell$. The next lemma handles \emph{every point} of each such triangle. Its auxiliary point $Y_*$ is a virtual rectangle corner, not an additional vertex or hinge of $P$.
+
+\begin{lemma}[Supporting-circle and clipped-petal separation]\label{lem:remote}
+Suppose $\mu\geq a\lambda$. For every $j<r$, the unfolded triangle $C_jC_{j+1}W$ has no interior intersection with the upper-face wedge $\mathcal K_N$ in \eqref{eq:wedge}. More precisely, its portion above $Y=\ell$ is contained in
+\[
+ \{(X,Y):Y\geq\ell,\ X\geq E_0+a(Y-\ell)\}.
+\]
+Points of that portion with $Y>\ell$ satisfy the corresponding strict inequality.
+\end{lemma}
+\begin{proof}
+Fix a lower northeast edge, with outward unit normal $n=(n_x,n_y)$, $n_x>0$ and $n_y>a n_x$. In this proof set
+\[
+ w=J_a(e,d)=(E_0,d),\qquad Y_*=J_a(b,c)=(b-ac,c).
+\]
+The bottom polygon is contained in the coordinate rectangle, and the normal's label components are positive. Hence its edge support value satisfies $\kappa_B\leq n\cdot Y_*$. Write
+\[
+ t=\sqrt{(n\cdot w-\kappa_B)^2+h^2}-(n\cdot w-\kappa_B),
+\quad z=w+tn
+\]
+for the actual developed apex. Define the virtual apex
+\[
+ t_*=\sqrt{(n\cdot(w-Y_*))^2+h^2}-n\cdot(w-Y_*),
+ \qquad z_*=w+t_*n.
+\]
+The function $s\mapsto\sqrt{s^2+h^2}-s$ is strictly decreasing, so $0<t\leq t_*$: $z$ lies on the segment $[w,z_*]$. The equation defining $t_*$ implies
+\[
+ t_*^2+2t_*n\cdot(w-Y_*)=h^2,
+\]
+therefore the \emph{support-circle identity} is
+\begin{equation}\label{eq:circle}
+ |z_*-Y_*|^2=|w-Y_*|^2+h^2.
+\end{equation}
+The developed north vertex $w_N=w+(0,\mu)=(E_0,\ell)$ belongs to the same circle because $\ell-c=S$ and $S^2=D_*^2+h^2$.
+
+Set
+\begin{equation}\label{eq:rx}
+ r_x=E_0-(b-ac)=A_*-aD_*,\qquad
+ w_N-Y_*=(r_x,S).
+\end{equation}
+We require the strict inequality
+\begin{equation}\label{eq:keypositive}
+ S+a r_x>0.
+\end{equation}
+It is clear for $a=0$. For $a>0$, the equations implicit in \eqref{eq:parameters} give
+\begin{equation}\label{eq:parameteridentities}
+ h^2=2A_*\lambda+L^2\lambda^2
+     =2D_*\mu+\mu^2.
+\end{equation}
+Since $\mu\geq a\lambda$ and the function
+$s\mapsto(h^2-L^2s^2)/(2s)$ decreases for $s>0$, we obtain
+\[
+ A_*=\frac{h^2-L^2\lambda^2}{2\lambda}
+ \geq\frac{a h^2}{2\mu}-\frac{L^2\mu}{2a}
+ =aD_*-\frac{\mu}{2a}.
+\]
+Consequently
+\begin{equation}\label{eq:keylower}
+ S+a r_x=S+a(A_*-aD_*)
+ \geq S-\frac\mu2=\frac{S+D_*}{2}>0.
+\end{equation}
+The strict positivity follows from $h>0$.
+
+Suppose now that the virtual apex lies \emph{above} the north hinge. Write
+$z_*=w_N+(s,t_0)$, where $t_0>0$. Since $n_x>0$ and $t_*>0$, we also have $s=t_*n_x\geq0$. The common-circle identity gives
+\begin{equation}\label{eq:circleexpand}
+ 2r_xs+s^2+2St_0+t_0^2=0.
+\end{equation}
+If $r_x\geq0$, this is impossible. If $r_x<0$ and $s\leq at_0$, the left side of \eqref{eq:circleexpand} is at least
+\[
+ 2(S+ar_x)t_0+s^2+t_0^2>0,
+\]
+again impossible. Therefore
+\begin{equation}\label{eq:virtualright}
+ z_{*,X}>E_0+a(z_{*,Y}-\ell)
+       \qquad\text{whenever }z_{*,Y}>\ell.
+\end{equation}
+The segment $wz_*$ begins below $Y=\ell$ at $X=E_0$. If it rises through the hinge line, its first crossing has $X>E_0$ because the direction $n$ has $n_x>0$. Beyond that crossing, the affine function $X-E_0-a(Y-\ell)$ is positive both at the crossing and at $z_*$ by \eqref{eq:virtualright}. Thus, since $z\in[w,z_*]$, every actual apex satisfying $z_Y>\ell$ obeys
+\begin{equation}\label{eq:actualright}
+ z_X>E_0+a(z_Y-\ell).
+\end{equation}
+If $z_Y\leq\ell$, the petal itself lies below the hinge line and needs no further consideration.
+
+It remains essential to check the \emph{whole} triangular petal, rather than only $z$. Assume $z_Y>\ell$ and let $p$ be any point of its base edge $C_jC_{j+1}$. Its developed $Y$-coordinate satisfies $p_Y\leq c<\ell$. We claim that the crossing $q$ of $pz$ with $Y=\ell$ has $q_X\geq E_0$. If $p_X\geq E_0$ this follows immediately from \eqref{eq:actualright}. Otherwise, suppose $p_X<E_0$ and $q_X<E_0$. Since $z_X>E_0$, the segment $pz$ then crosses the vertical line $X=E_0$ at a point $r=(E_0,r_Y)$ \emph{above} $\ell$. The development is rigid, and the actual three-dimensional upper vertex is $(E_0,d,h)$. Thus
+\begin{equation}\label{eq:rigiddist}
+ |p-z|^2=(E_0-p_X)^2+(d-p_Y)^2+h^2.
+\end{equation}
+As $r\in[p,z]$, $|p-r|\leq|p-z|$, whence
+\[
+ r_Y\leq p_Y+\sqrt{(d-p_Y)^2+h^2}
+ \leq c+\sqrt{(d-c)^2+h^2}=\ell.
+\]
+Here $s\mapsto s+\sqrt{(d-s)^2+h^2}$ is strictly increasing, since $h>0$, and $p_Y\leq c$. This contradiction proves the crossing claim.
+
+Finally, the portion of the convex triangle $C_jC_{j+1}z$ above $Y=\ell$ is a convex polygon whose vertices lie either on $Y=\ell$ at $X\geq E_0$, or at the apex $z$ where \eqref{eq:actualright} is strict. The function $X-E_0-a(Y-\ell)$ is affine. It is therefore nonnegative throughout the clipped petal, and strictly positive wherever $Y>\ell$. In contrast, the upper face is contained in the opposite half of the wedge \eqref{eq:wedge}. The two developed faces have disjoint relative interiors, with possible boundary contact on the hinge line. This works for every northeast edge independently of its length or position in the chain.
+\end{proof}
+
+\begin{proposition}[The north branch]\label{prop:north}
+Under $\mu\geq a\lambda$, the unfolding obtained by cutting precisely $T_N$ is nonoverlapping.
+\end{proposition}
+\begin{proof}
+By Proposition~\ref{prop:facets} the net is a connected disk with genuine original hinges. Pinciu's theorem separates the direct lower-face neighborhood. Proposition~\ref{prop:fan} separates the attached $O$-fan from that neighborhood, the upper face, and itself. Lemmas~\ref{lem:ordinary} and~\ref{lem:remote} separate the upper face from every member of the lower-face neighborhood. These exhaust all pairs of maximal facets, proving the assertion.
+\end{proof}
+
+\section{Reflection, endpoint cases, and consequences}
+We give the exact symmetric argument, rather than deforming any already developed polygon. The orthogonal map $R$ of \eqref{eq:reflection}, acting on both horizontal coordinates and leaving the vertical height unchanged, takes the original labeled frame into another frame of the same form with \emph{the same} $a$. It swaps the two distinguished coordinate directions. Reversing the cyclic chain orders and exchanging the roles of $U,V$ gives the new parameters
+\[
+ b'=Lc,\qquad c'=b/L,\qquad
+ e'=Ld,\qquad d'=e/L,
+\]
+and, for the additional upper labels, $u'=Lv$ and $v'=u/L$. Every strict monotonicity and convexity assumption is preserved; the transformed polygons have the same $r,k$ up to reversing the respective chain orders. Moreover
+\[
+ A_*'=e'-b'=LD_*,\qquad
+ D_*'=d'-c'=A_*/L,
+\]
+so that $\rho'=LS$, $S'=\rho/L$ and
+\begin{equation}\label{eq:refparameters}
+ \lambda'=\frac\mu L,\qquad \mu'=L\lambda.
+\end{equation}
+Under this reflection the north-attached net in the transformed frame is precisely the east-attached net $T_E$ in the original frame: the cuts $OU,VW$ are replaced by $OV,UW$, while the other cuts are carried to their corresponding genuine edges. Its north-branch inequality becomes
+\[
+ \mu'\geq a\lambda'
+ \quad\Longleftrightarrow\quad
+ L^2\lambda\geq a\mu,
+\]
+which is \eqref{eq:Econdition}. Since $R$ is orthogonal, all developed lengths, incidences and overlaps are preserved. Proposition~\ref{prop:north} therefore proves the $E$-branch assertion. Together with the parameter coverage after Theorem~\ref{thm:main}, this completes its proof.
+
+\begin{corollary}\label{cor:R1}
+If $a=0$ and $r=0$, the lower polygon is a rectangle and the upper polygon may have any admissible decreasing convex chain. For every horizontal translation and $h>0$, the prescribed tree $T_N$ gives a nonoverlapping edge unfolding.
+\end{corollary}
+\begin{proof}
+Here $\mu>0=a\lambda$, so the north condition always holds.
+\end{proof}
+
+\begin{remark}[Non-nesting and small height]
+Even the case of Corollary~\ref{cor:R1} includes disjoint horizontal base projections: take $b=c=1$, $U=(4,4)$, $V=(5,3)$, and $W=(5,4)$ in the unsheared frame. The assertion holds for every $h>0$, however small. For $a>0$ and $r,k$ large, neither base must be a rectangle or a triangle, and the facet list contains genuine quadrilaterals. Thus the proof neither relies on nesting nor reduces to a sufficiently-tall or triangular-side-face criterion.
+\end{remark}
+
+\begin{remark}[Sharp boundaries of the stated domain]
+The strict hypotheses allow $a=0$, $r=0$, $k=1$, arbitrarily small positive $h$, and equality in either branch inequality. No positive lower bound for $h$ is hidden in the argument. The case $h=0$, an angle $\delta=\pi$, or collapsed/collinear consecutive vertices is not included: such limits may change the maximal-facet or genuine-edge graph. Boundary contact in the developed plane does not count as overlap. The theorem asserts safe nets for two specified trees under sufficient tests; it does not assert that either test is necessary or that these two trees suffice outside the defined class.
+\end{remark}
+
+\section{Relation to other unfolding methods}
+The present proof is self-contained except for Pinciu's face-neighborhood theorem. The older volcano and petal arguments account for the direct side-face development; the positive curvature of $O$ separates the remaining fan, while the supporting-circle inequality and first-crossing argument handle the placement of the entire upper cap against remote petals. Neither the band-unfolding theorems nor known nesting and large-height hypotheses imply those two last steps directly. The explicit cut trees are confined to the actual hull edges, including the original quadrilateral lateral facets.
+
+The relationship to broader construction theorems deserves care. The truncation procedure of Benton--O'Rourke~\cite{BentonORourke2007} preserves nonoverlap when its empty-sector and degree-three leaf requirements hold; a reduction of \emph{every} metric instance in the present family to a suitable seed and such a truncation sequence has not been established here. Likewise, the realization of abstract skeletal cut-locus trees and the tapered source constructions of O'Rourke--V\^ilcu~\cite{ORourkeVilcu2025} do not, by their stated existence quantifiers, prescribe an edge net for every fixed member of this family. The intended contribution is the direct metric construction and its two sufficient selection inequalities.
+
+\section*{Use of AI}
+OpenAI's GPT-6 Pro contributed substantively to the mathematical investigation, development of proofs, computational verification, literature review, and drafting of this manuscript. The author is responsible for its mathematical claims and final presentation.
+
+\clearpage
+\begin{thebibliography}{99}
+\bibitem{Aloupis2005}
+G.~Aloupis, \emph{Reconfigurations of Polygonal Structures}, Ph.D. thesis, McGill University, 2005, Chapter~7; \href{https://citeseerx.ist.psu.edu/document?doi=8be1c6286e292285e85e92bec91d23e40ee34bb7\&repid=rep1\&type=pdf}{thesis PDF}.
+
+\bibitem{AloupisEtAl2008}
+G.~Aloupis, E.~D.~Demaine, S.~Langerman, P.~Morin, J.~O'Rourke, I.~Streinu, and G.~Toussaint,
+\emph{Edge-unfolding nested polyhedral bands}, Comput. Geom. \textbf{39} (2008), 30--42; \href{https://doi.org/10.1016/j.comgeo.2007.05.009}{doi:10.1016/j.comgeo.2007.05.009}.
+
+\bibitem{BentonORourke2007}
+A.~Benton and J.~O'Rourke,
+\emph{Unfolding polyhedra via cut-tree truncation}, Proc. 19th Canadian Conf. Comput. Geom. (2007), 77--80; \href{https://cccg.ca/proceedings/2007/03b4.pdf}{CCCG paper}.
+
+\bibitem{BianDemaineMadhukara2021}
+V.~Bian, E.~D.~Demaine, and R.~Madhukara,
+\emph{Edge-unfolding prismatoids: Tall or rectangular base}, Proc. 33rd Canadian Conf. Comput. Geom. (2021); \href{https://arxiv.org/abs/2106.14262}{arXiv:2106.14262}.
+
+\bibitem{DemaineORourke2007}
+E.~D.~Demaine and J.~O'Rourke,
+\emph{Geometric Folding Algorithms: Linkages, Origami, Polyhedra}, Cambridge University Press, 2007, Chapter~22; \href{https://doi.org/10.1017/CBO9780511735172.024}{\nolinkurl{doi:10.1017/CBO9780511735172.024}}.
+
+\bibitem{Ghomi2014}
+M.~Ghomi, \emph{Affine unfoldings of convex polyhedra}, Geom. Topol. \textbf{18} (2014), 3055--3090; \href{https://doi.org/10.2140/gt.2014.18.3055}{doi:10.2140/gt.2014.18.3055}.
+
+\bibitem{ORourke2026}
+J.~O'Rourke,
+\emph{Prismatoid band-unfolding revisited}, \href{https://arxiv.org/abs/2603.09813v3}{arXiv:2603.09813v3} (2026).
+
+\bibitem{ORourke2013}
+J.~O'Rourke,
+\emph{Unfolding face-neighborhood convex patches: Counterexamples and positive results}, Proc. 25th Canadian Conf. Comput. Geom. (2013); \href{https://cccg.ca/proceedings/2013/papers/paper_22.pdf}{CCCG paper}.
+
+\bibitem{ORourkeVilcu2025}
+J.~O'Rourke and C.~V\^ilcu,
+\emph{Skeletal cut loci on convex polyhedra}, \href{https://arxiv.org/abs/2312.01534v3}{arXiv:2312.01534v3} (2025).
+
+\bibitem{Pinciu2007}
+V.~Pinciu,
+\emph{On the fewest nets problem for convex polyhedra}, Proc. 19th Canadian Conf. Comput. Geom. (2007), 21--24; \href{https://cccg.ca/proceedings/2007/01a4.pdf}{CCCG paper}.
+
+\bibitem{Radons2024}
+M.~Radons,
+\emph{Edge-unfolding nested prismatoids}, Comput. Geom. \textbf{116} (2024), article 102033; \href{https://doi.org/10.1016/j.comgeo.2023.102033}{doi:10.1016/j.comgeo.2023.102033}.
+\end{thebibliography}
+\end{document}

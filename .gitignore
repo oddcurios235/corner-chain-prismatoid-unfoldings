@@ -1,0 +1,15 @@
+# Local editor and operating-system artifacts
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# pdfLaTeX-generated intermediate files
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.blg
