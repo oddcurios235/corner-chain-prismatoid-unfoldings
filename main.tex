@@ -28,7 +28,7 @@ We prove that a family of convex prismatoids with complementary monotone corner 
 \maketitle
 
 \section{Introduction}
-An \emph{edge unfolding} of a convex polyhedron is obtained by cutting along edges so that the remaining connected surface develops isometrically into the plane. It is \emph{nonoverlapping} if the relative interiors of distinct developed faces do not intersect; contact along their boundaries is permitted. The general existence question, often called D\"urer's problem, remains open. It is open even for arbitrary convex prismatoids, the convex hulls of two polygons lying in parallel planes~\cite{ORourke2026}.
+An \emph{edge unfolding} of a convex polyhedron is obtained by cutting along edges so that the remaining connected surface develops isometrically into the plane. It is \emph{nonoverlapping} if the relative interiors of distinct developed faces do not intersect; contact along their boundaries is permitted. The general existence question, often called D\"urer's problem, remains open. It is open even for arbitrary convex prismatoids, the convex hulls of two polygons lying in parallel planes~\cite{ORourke2013,BianDemaineMadhukara2021}.
 
 Several restricted classes and related unfolding operations are understood. Classical prismoids and domes admit edge nets~\cite[Ch.~22, \S22.5]{DemaineORourke2007}; the lower-face \emph{volcano unfolding}, in which a face and all of its edge-neighbors are developed directly about their common edges, is nonoverlapping by Pinciu's theorem~\cite[Theorem~1]{Pinciu2007}. Aloupis treated the unfolding of lateral polygonal bands, including nonnested closed bands, without thereby attaching both caps~\cite[Chapter~7]{Aloupis2005}; see also~\cite{AloupisEtAl2008}. O'Rourke developed petal unfoldings for topless prismatoids and particular convex face neighborhoods~\cite{ORourke2013}. Radons proved that all \emph{nested} prismatoids have edge nets~\cite{Radons2024}, and Bian, Demaine, and Madhukara established existence for sufficiently tall prismatoids, as well as for prismatoids with a rectangular base and nonobtuse triangular remaining faces~\cite{BianDemaineMadhukara2021}.
 
@@ -145,7 +145,7 @@ Formula \eqref{eq:develop} gives the outward, isometric planar development of an
 \end{equation}
 \end{lemma}
 \begin{proof}
-Resolve a displacement into components tangential and normal to the bottom hinge. Rotation of the upper face into the bottom plane leaves the tangential coordinate of $w$ unchanged; its distance from the hinge becomes $\sqrt{(n\cdot w-\kappa_B)^2+h^2}$. The outward choice yields \eqref{eq:develop}, and is the restriction of a spatial rigid rotation, not an affine planar transformation. For a parallelogram side facet the two upper vertices have equal normal coordinates, so the same rigid rotation applies to both.
+Resolve a displacement into components tangential and normal to the bottom hinge. Rotation of the upper face into the bottom plane leaves the tangential coordinate of $w$ unchanged; its distance from the hinge becomes $\sqrt{(n\cdot w-\kappa_B)^2+h^2}$. The outward choice yields \eqref{eq:develop}, and is the restriction of a spatial rigid rotation, not an affine planar transformation. For each of the north and east quadrilateral side facets, the upper edge is parallel to the lower hinge. Thus its two upper vertices have equal normal coordinates, and the same rigid rotation applies to both.
 
 The north hinge has normal $(0,1)$ and support $c$, yielding shift $(0,\mu)$. The east hinge has normal $(1,a)/L$ and support $b/L$, so its shift is $\lambda(1,a)$. The south and west cases similarly give \eqref{eq:southwest}; the stated coefficients are positive because $h>0$. All four calculations use orthonormal Euclidean coordinates.
 \end{proof}
@@ -421,10 +421,6 @@ E.~D.~Demaine and J.~O'Rourke,
 
 \bibitem{Ghomi2014}
 M.~Ghomi, \emph{Affine unfoldings of convex polyhedra}, Geom. Topol. \textbf{18} (2014), 3055--3090; \href{https://doi.org/10.2140/gt.2014.18.3055}{doi:10.2140/gt.2014.18.3055}.
-
-\bibitem{ORourke2026}
-J.~O'Rourke,
-\emph{Prismatoid band-unfolding revisited}, \href{https://arxiv.org/abs/2603.09813v3}{arXiv:2603.09813v3} (2026).
 
 \bibitem{ORourke2013}
 J.~O'Rourke,
