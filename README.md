@@ -46,6 +46,8 @@ The bibliography is included in `main.tex`; no separate BibTeX step is needed.
 
 Y. T. Miah, *Edge Unfoldings of Complementary Corner-Chain Prismatoids at Every Positive Height*, manuscript dated 5 November 2026. Citation metadata are also available in [`CITATION.cff`](CITATION.cff).
 
+Zenodo preprint: [10.5281/zenodo.23993685](https://doi.org/10.5281/zenodo.23993685).
+
 ## Licence
 
 The original manuscript and repository documentation are available under [Creative Commons Attribution 4.0 International (CC BY 4.0)](LICENSE.md).
